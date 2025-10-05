@@ -150,7 +150,7 @@ gemini-translator-chromeextension/
 
 ## 更新履歴
 
-### v1.0 (2025-01-XX)
+### v1.0 (2025-10-05)
 - 初回リリース
 - Google Gemini API統合
 - 基本的な翻訳機能（英語 ⇄ 日本語）
