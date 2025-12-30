@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Translator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Gemini Translator</h1>
+        </div>
+
+        <!-- API Key Setup -->
+        <div id="apiKeySetup" class="api-key-setup">
+            <h3>初期設定</h3>
+            <p>Gemini API Keyを入力してください:</p>
+            <input type="password" id="apiKeyInput" placeholder="API Keyを入力..." />
+            <button id="saveApiKey">保存</button>
+            <div class="help-text">
+                <small>
+                    <a href="https://ai.google.dev/gemini-api/docs/api-key" target="_blank">
+                        Gemini API Keyを取得
+                    </a>
+                </small>
+            </div>
+        </div>
+
+        <!-- Main Translator -->
+        <div id="translatorMain" class="translator-main" style="display: none;">
+            <!-- Model Selection -->
+            <div class="model-section">
+                <label for="modelSelect">モデル:</label>
+                <select id="modelSelect">
+                    <option value="gemini-3-flash-preview" selected>gemini-3-flash-preview (Recommended)</option>
+                    <option value="gemini-2.5-flash-lite">gemini-2.5-flash-lite</option>
+                    <option value="gemini-2.5-flash">gemini-2.5-flash</option>
+                </select>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-section">
+                <label for="inputText">翻訳したいテキスト:</label>
+                <textarea id="inputText" placeholder="翻訳したいテキストを入力してください..." rows="1"></textarea>
+                <div class="button-group">
+                    <button id="translateBtn" class="translate-btn">翻訳</button>
+                    <button id="proofreadBtn" class="secondary-btn" style="display: none;">校正</button>
+                    <button id="explainBtn" class="secondary-btn" style="display: none;">解説</button>
+                    <button id="clearBtn" class="clear-btn">クリア</button>
+                </div>
+            </div>
+
+            <!-- Result Area -->
+            <div class="result-section">
+                <label for="resultText">翻訳結果:</label>
+                <textarea id="resultText" placeholder="翻訳結果がここに表示されます..." readonly rows="1"></textarea>
+                <div class="result-info">
+                    <span id="languageInfo"></span>
+                    <button id="copyBtn" class="copy-btn" style="display: none;">コピー</button>
+                </div>
+            </div>
+
+            <!-- Extra Result Area (Proofread/Explain) -->
+            <div id="extraResultSection" class="result-section" style="display: none;">
+                <label id="extraResultLabel">解説・校正:</label>
+                <div id="extraResultContent" class="markdown-body"></div>
+            </div>
+
+            <!-- History Section -->
+            <div class="history-section">
+                <h3>翻訳履歴 <span id="historyCount">(0/10)</span></h3>
+                <div id="historyList" class="history-list">
+                    <!-- History items will be dynamically added here -->
+                </div>
+                <button id="clearHistoryBtn" class="clear-history-btn">履歴をクリア</button>
+            </div>
+
+            <!-- Settings -->
+            <div class="settings-section">
+                <button id="settingsBtn" class="settings-btn">設定</button>
+            </div>
+        </div>
+
+        <!-- Status -->
+        <div id="status" class="status"></div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
