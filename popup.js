@@ -272,7 +272,13 @@ ${inputText}`;
         document.getElementById('extraResultLabel').textContent = '解説:';
         document.getElementById('extraResultContent').innerHTML = '<div style="color: #666;">生成中...</div>';
 
-        const prompt = `Please explain the grammar structure and important vocabulary of the following English text for a Japanese learner. Keep the explanation concise (TL;DR style). Output in Japanese using Markdown.
+        const prompt = `Please explain the following English text for a Japanese learner.
+Output requirements:
+1. TL;DR (Concise summary of the meaning in Japanese).
+2. Important grammar points (Bullet points in Japanese).
+3. Important vocabulary (Bullet points in Japanese: "Word - Meaning").
+
+IMPORTANT: Do NOT use Markdown tables. Use simple bullet points for all sections.
 
 Text:
 ${inputText}`;
